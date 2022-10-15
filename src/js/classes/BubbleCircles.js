@@ -35,9 +35,11 @@ export default class BubbleCircles {
             const circle = this.circles[i],
                 { x, y, size, colour } = circle;
             if(size > 0) {
-                this.p.noFill();
+                this.p.fill(colour._getHue(),colour._getSaturation(), colour._getBrightness(), 0.2);
                 this.p.stroke(colour);
+                this.p.strokeWeight(2);
                 this.p.ellipse(x, y, size, size);
+                this.p.noFill();
                 this.p.ellipse(x, y, size / 2, size / 2);
                 this.p.ellipse(x, y, size / 4, size / 4);
                 this.circles[i].x = x - this.p.random(-distanceAdjuster, distanceAdjuster);    
